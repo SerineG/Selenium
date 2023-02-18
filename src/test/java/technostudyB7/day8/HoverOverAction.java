@@ -49,7 +49,6 @@ public class HoverOverAction extends UtilityClass {
         Action hoverOverEarringsAction = actions.moveToElement(earrings).build();
         hoverOverEarringsAction.perform();
 
-
         //<a id="catnav-l3-10904"
         // class="wt-display-block wt-text-black wt-text-link-no-underline "
         // href="/c/jewelry/earrings/clip-on-earrings?ref=catnav-10855" role="menuitem" tabindex="-1">
