@@ -28,12 +28,13 @@ public class FindElementsExample2 extends UtilityClass {
         WebElement loginButton = driver.findElement(By.xpath("//input[@data-test='login-button']"));
         loginButton.click();
 
-        List<WebElement> inventoryItems = driver.findElements(By.cssSelector(".inventory_item_name"));
+        List<WebElement> inventoryItems;
         List<String> inventoryItemsNames = new ArrayList<>();
         List<Integer> indexList = new ArrayList<>();
 
         //TODO: complete and explain this part
         while (inventoryItemsNames.size()<3){
+          inventoryItems = driver.findElements(By.cssSelector(".inventory_item_name"));
             int randomIndex = (int)(Math.random()*inventoryItems.size());
 
             if (indexList.contains(randomIndex)){
@@ -50,8 +51,27 @@ public class FindElementsExample2 extends UtilityClass {
         WebElement cartIcon = driver.findElement(By.className("shopping_cart_badge"));
         cartIcon.click();
 
+        WebElement checkOutButton = driver.findElement(By.id("checkout"));
+        checkOutButton.click();
 
+        WebElement nameInput = driver.findElement(By.id("first-name"));
+        nameInput.sendKeys("John");
 
+        WebElement lastNameBar = driver.findElement(By.id("last-name"));
+        lastNameBar.sendKeys("Snow");
 
+        WebElement zipCode=driver.findElement(By.id("postal-code"));
+        zipCode.sendKeys("44444");
+
+        WebElement continuee=driver.findElement(By.id("continue"));
+        continuee.click();
+
+        List<WebElement> checkOutItemsList = driver.findElements(By.className("inventory_item_name"));
+
+        for (WebElement product: checkOutItemsList){
+            System.out.println(inventoryItemsNames.contains(product.getText()));
+        }
+
+        driver.quit();
     }
 }
