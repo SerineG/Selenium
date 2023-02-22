@@ -17,24 +17,24 @@ public class Window extends UtilityClass {
 
         driver.get("https://www.selenium.dev/");
 
-        String mainPageId =  driver.getWindowHandle(); // we are getting the id of the main page
+        String mainPageId = driver.getWindowHandle(); // we are getting the id of the active window
 
-        WebElement registerNowButton = driver.findElement(By.cssSelector("a[href='https://seleniumconf.com/']"));
+        WebElement registerNowButton = driver.findElement(By.xpath("//a[text()='Get Tickets']"));
         registerNowButton.click();
 
-       Set<String> allIds = driver.getWindowHandles();
+        Set<String> allIds = driver.getWindowHandles();
 
-       for (String id: allIds){
-           if (!id.equals(mainPageId)){
-               driver.switchTo().window(id);
-           }
-       }
+        for (String id : allIds) {
+            if (!id.equals(mainPageId)) {
+                driver.switchTo().window(id);
+            }
+        }
         System.out.println(driver.getTitle());
 
-       driver.switchTo().window(mainPageId);
+        driver.close(); // We closed the active window(register)
+
+        driver.switchTo().window(mainPageId); // We must switch to the other window to use it
+                                              // After we closed the active window
         System.out.println(driver.getTitle());
-
-
-
     }
 }

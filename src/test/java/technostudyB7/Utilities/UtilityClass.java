@@ -26,5 +26,12 @@ public class UtilityClass {
         driver.quit();
     }
 
+    public static void Wait(int second){
+        try {
+            Thread.sleep(second*1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 }
