@@ -15,6 +15,9 @@ import java.time.Duration;
 
 public class Robot1 extends UtilityClass {
     public static void main(String[] args) throws AWTException {
+
+        // We use Robot class to upload and download files
+        // We can control windows pop ups with Robot class
         driver.get("http://demo.guru99.com/test/upload/");
         Wait(3);
         Robot robot = new Robot();
